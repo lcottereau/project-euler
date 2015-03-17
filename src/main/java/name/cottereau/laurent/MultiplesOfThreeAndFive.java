@@ -1,3 +1,5 @@
+package name.cottereau.laurent;
+
 /*
  * This file is part of Project-Euler.
  *
@@ -14,18 +16,19 @@
  * You should have received a copy of the GNU General Public License
  * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.Test;
+import static java.util.stream.IntStream.range;
 
 /**
- * Test de {@link MultiplesOfThreeAndFive}.
+ * Find a solution to {@link https://projecteuler.net/problem=1}.
  */
-public class MultiplesOfThreeAndFiveTest {
+public class MultiplesOfThreeAndFive {
 
-    @Test
-    public void result_for_10() {
-        assertThat(MultiplesOfThreeAndFive.solve(10)).isEqualTo(23);
+    public static Integer solve(int upper) {
+        return range(0, upper).filter((int value) -> value % 3 == 0 || value % 5 == 0).sum();
+    }
+
+    public static void main(String... args) {
+        System.out.println("Pour les entiers jusqu'à 1000 : " + solve(1000));
     }
 
 }
